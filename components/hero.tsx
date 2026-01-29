@@ -77,15 +77,29 @@ export function Hero() {
           <div className="w-8 h-px bg-foreground/20" />
         </motion.div>
 
-        {/* Main Title - Much larger and bolder */}
+        {/* Main Title - Elegant and refined */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-foreground leading-[0.9] mb-10 text-balance tracking-tight"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground leading-[1.1] mb-10 text-balance tracking-wide"
+          style={{
+            textShadow: '0 4px 30px rgba(0, 0, 0, 0.05)',
+            letterSpacing: '0.02em',
+          }}
         >
-          {t.hero.title}
+          <span className="block mb-2 bg-gradient-to-r from-foreground via-foreground/90 to-foreground bg-clip-text">
+            {t.hero.title}
+          </span>
         </motion.h1>
+
+        {/* Luxury accent line under title */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-8"
+        />
 
         {/* Decorative divider */}
         <motion.div
@@ -99,39 +113,40 @@ export function Hero() {
           <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/50" />
         </motion.div>
 
-        {/* Subtitle - Larger and more refined */}
+        {/* Subtitle - Elegant and refined */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-muted-foreground text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-16 leading-relaxed font-light"
+          className="text-muted-foreground text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-light tracking-wide"
+          style={{ letterSpacing: '0.03em' }}
         >
           {t.hero.subtitle}
         </motion.p>
 
-        {/* CTA Buttons - More elegant */}
+        {/* CTA Buttons - Luxury styling */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
           <motion.a
             href="#portfolio"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15)' }}
             whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 text-lg font-medium transition-all hover:bg-primary/90"
+            className="group flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-medium tracking-[0.15em] uppercase transition-all hover:bg-primary/90 shadow-lg"
           >
-            <Play size={20} className="fill-current" />
-            <span className="tracking-wide">{t.hero.cta}</span>
+            <Play size={16} className="fill-current" />
+            <span>{t.hero.cta}</span>
           </motion.a>
           <motion.a
             href="#calculator"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-4 bg-transparent text-foreground px-10 py-5 text-lg font-medium border border-border hover:border-accent hover:text-accent transition-all"
+            className="group flex items-center gap-3 bg-transparent text-foreground px-8 py-4 text-sm font-medium tracking-[0.15em] uppercase border border-border hover:border-accent hover:text-accent transition-all"
           >
-            <span className="tracking-wide">{t.hero.secondary}</span>
+            <span>{t.hero.secondary}</span>
           </motion.a>
         </motion.div>
 
