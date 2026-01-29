@@ -89,19 +89,19 @@ export function Calculator() {
   }
 
   return (
-    <section id="calculator" className="py-32 lg:py-40 bg-offwhite relative overflow-hidden">
+    <section id="calculator" className="py-32 lg:py-40 bg-background relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-obsidian" />
-        <div className="absolute top-0 left-1/2 w-px h-full bg-obsidian" />
-        <div className="absolute top-0 left-3/4 w-px h-full bg-obsidian" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-foreground" />
+        <div className="absolute top-0 left-1/2 w-px h-full bg-foreground" />
+        <div className="absolute top-0 left-3/4 w-px h-full bg-foreground" />
       </div>
 
       {/* Corner decorative frames */}
-      <div className="absolute top-12 left-12 w-24 h-24 border-l border-t border-gold/15 hidden lg:block" />
-      <div className="absolute top-12 right-12 w-24 h-24 border-r border-t border-gold/15 hidden lg:block" />
-      <div className="absolute bottom-12 left-12 w-24 h-24 border-l border-b border-gold/15 hidden lg:block" />
-      <div className="absolute bottom-12 right-12 w-24 h-24 border-r border-b border-gold/15 hidden lg:block" />
+      <div className="absolute top-12 left-12 w-24 h-24 border-l border-t border-accent/15 hidden lg:block" />
+      <div className="absolute top-12 right-12 w-24 h-24 border-r border-t border-accent/15 hidden lg:block" />
+      <div className="absolute bottom-12 left-12 w-24 h-24 border-l border-b border-accent/15 hidden lg:block" />
+      <div className="absolute bottom-12 right-12 w-24 h-24 border-r border-b border-accent/15 hidden lg:block" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
         {/* Section Header - Enhanced */}
@@ -117,28 +117,28 @@ export function Calculator() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            className="w-20 h-px bg-gold mx-auto mb-10"
+            className="w-20 h-px bg-accent mx-auto mb-10"
           />
 
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Ruler className="w-4 h-4 text-gold" />
-            <span className="text-gold/80 text-xs md:text-sm tracking-[0.5em] uppercase font-medium">
+            <Ruler className="w-4 h-4 text-accent" />
+            <span className="text-accent/80 text-xs md:text-sm tracking-[0.5em] uppercase font-medium">
               Price Calculator
             </span>
           </div>
 
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-obsidian mb-8 tracking-tight">
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8 tracking-tight">
             {t.calculator.title}
           </h2>
 
           {/* Decorative divider */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-gold/40" />
-            <div className="w-2 h-2 rotate-45 border border-gold/40" />
+            <div className="w-2 h-2 rotate-45 border border-accent/40" />
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold/40" />
           </div>
 
-          <p className="text-obsidian/50 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-foreground/50 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
             {t.calculator.subtitle}
           </p>
         </motion.div>
@@ -154,7 +154,7 @@ export function Calculator() {
           >
             {/* Category Selection */}
             <div>
-              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-obsidian/70 mb-6">
+              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-foreground/70 mb-6">
                 {t.calculator.category}
               </label>
               <div className="grid grid-cols-3 gap-4">
@@ -166,8 +166,8 @@ export function Calculator() {
                     whileTap={{ scale: 0.98 }}
                     className={`px-4 py-5 text-sm tracking-wide font-medium transition-all duration-300 ${
                       category === cat.key
-                        ? "bg-obsidian text-offwhite"
-                        : "bg-white text-obsidian border border-obsidian/10 hover:border-gold/50"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-white text-foreground border border-obsidian/10 hover:border-accent/50"
                     }`}
                   >
                     {cat.label}
@@ -178,7 +178,7 @@ export function Calculator() {
 
             {/* Dimensions */}
             <div>
-              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-obsidian/70 mb-6">
+              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-foreground/70 mb-6">
                 {t.calculator.dimensions}
               </label>
               <div className="grid grid-cols-3 gap-4">
@@ -188,7 +188,7 @@ export function Calculator() {
                   { key: "height", label: t.calculator.height },
                 ].map((dim) => (
                   <div key={dim.key}>
-                    <label className="block text-xs text-obsidian/50 mb-3 tracking-wide">
+                    <label className="block text-xs text-foreground/50 mb-3 tracking-wide">
                       {dim.label}
                     </label>
                     <input
@@ -200,7 +200,7 @@ export function Calculator() {
                           [dim.key]: parseInt(e.target.value) || 0,
                         }))
                       }
-                      className="w-full px-5 py-4 bg-white border border-obsidian/10 text-obsidian text-lg focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                      className="w-full px-5 py-4 bg-white border border-obsidian/10 text-foreground text-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
                     />
                   </div>
                 ))}
@@ -209,7 +209,7 @@ export function Calculator() {
 
             {/* Material Selection */}
             <div>
-              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-obsidian/70 mb-6">
+              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-foreground/70 mb-6">
                 {t.calculator.material}
               </label>
               <div className="space-y-3">
@@ -221,12 +221,12 @@ export function Calculator() {
                     whileTap={{ scale: 0.99 }}
                     className={`w-full px-6 py-5 text-left text-sm font-medium transition-all duration-300 flex items-center justify-between ${
                       material === mat.key
-                        ? "bg-obsidian text-offwhite"
-                        : "bg-white text-obsidian border border-obsidian/10 hover:border-gold/50"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-white text-foreground border border-obsidian/10 hover:border-accent/50"
                     }`}
                   >
                     <span className="tracking-wide">{mat.label}</span>
-                    <span className={`text-xs ${material === mat.key ? 'text-gold' : 'text-obsidian/40'}`}>
+                    <span className={`text-xs ${material === mat.key ? 'text-accent' : 'text-foreground/40'}`}>
                       x{PRICE_CONSTANTS.materialMultiplier[mat.key]}
                     </span>
                   </motion.button>
@@ -236,7 +236,7 @@ export function Calculator() {
 
             {/* Add-ons */}
             <div>
-              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-obsidian/70 mb-6">
+              <label className="block text-xs tracking-[0.2em] uppercase font-medium text-foreground/70 mb-6">
                 {t.calculator.addons}
               </label>
               <div className="space-y-4 bg-white p-8 border border-obsidian/10">
@@ -271,12 +271,12 @@ export function Calculator() {
                       />
                       <Label
                         htmlFor={addon.key}
-                        className="text-sm text-obsidian cursor-pointer tracking-wide"
+                        className="text-sm text-foreground cursor-pointer tracking-wide"
                       >
                         {addon.label}
                       </Label>
                     </div>
-                    <span className="text-sm text-gold font-medium">+${addon.price}</span>
+                    <span className="text-sm text-accent font-medium">+${addon.price}</span>
                   </div>
                 ))}
               </div>
@@ -291,21 +291,21 @@ export function Calculator() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="lg:sticky lg:top-32 h-fit"
           >
-            <div className="bg-obsidian p-10 lg:p-14 text-center relative overflow-hidden">
+            <div className="bg-primary p-10 lg:p-14 text-center relative overflow-hidden">
               {/* Decorative corner elements */}
-              <div className="absolute top-6 left-6 w-12 h-12 border-l border-t border-gold/20" />
-              <div className="absolute top-6 right-6 w-12 h-12 border-r border-t border-gold/20" />
-              <div className="absolute bottom-6 left-6 w-12 h-12 border-l border-b border-gold/20" />
-              <div className="absolute bottom-6 right-6 w-12 h-12 border-r border-b border-gold/20" />
+              <div className="absolute top-6 left-6 w-12 h-12 border-l border-t border-accent/20" />
+              <div className="absolute top-6 right-6 w-12 h-12 border-r border-t border-accent/20" />
+              <div className="absolute bottom-6 left-6 w-12 h-12 border-l border-b border-accent/20" />
+              <div className="absolute bottom-6 right-6 w-12 h-12 border-r border-b border-accent/20" />
 
               {/* Background glow */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold/5 rounded-full blur-2xl" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
 
               <div className="relative">
-                <Sparkles className="w-10 h-10 text-gold mx-auto mb-8" />
+                <Sparkles className="w-10 h-10 text-accent mx-auto mb-8" />
                 
-                <p className="text-offwhite/50 text-xs tracking-[0.4em] uppercase mb-6 font-medium">
+                <p className="text-primary-foreground/50 text-xs tracking-[0.4em] uppercase mb-6 font-medium">
                   {t.calculator.total}
                 </p>
                 
@@ -315,7 +315,7 @@ export function Calculator() {
                   animate={{ scale: 1, opacity: 1 }}
                   className="mb-10"
                 >
-                  <span className="font-serif text-7xl lg:text-8xl xl:text-9xl text-offwhite tracking-tight">
+                  <span className="font-serif text-7xl lg:text-8xl xl:text-9xl text-primary-foreground tracking-tight">
                     ${totalPrice.toLocaleString()}
                   </span>
                 </motion.div>
@@ -323,8 +323,8 @@ export function Calculator() {
                 {/* Price breakdown */}
                 <div className="space-y-4 mb-10 text-left bg-white/5 p-6">
                   <div className="flex justify-between text-sm">
-                    <span className="text-offwhite/50 tracking-wide">Base price</span>
-                    <span className="text-offwhite font-medium">
+                    <span className="text-primary-foreground/50 tracking-wide">Base price</span>
+                    <span className="text-primary-foreground font-medium">
                       ${Math.round(
                         ((dimensions.length * dimensions.width) / 10000) *
                           PRICE_CONSTANTS.baseRatePerSqM[category]
@@ -332,15 +332,15 @@ export function Calculator() {
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-offwhite/50 tracking-wide">Material multiplier</span>
-                    <span className="text-offwhite font-medium">
+                    <span className="text-primary-foreground/50 tracking-wide">Material multiplier</span>
+                    <span className="text-primary-foreground font-medium">
                       x{PRICE_CONSTANTS.materialMultiplier[material]}
                     </span>
                   </div>
                   {Object.entries(addons).some(([, v]) => v) && (
                     <div className="flex justify-between text-sm pt-2 border-t border-white/10">
-                      <span className="text-offwhite/50 tracking-wide">Add-ons</span>
-                      <span className="text-gold font-medium">
+                      <span className="text-primary-foreground/50 tracking-wide">Add-ons</span>
+                      <span className="text-accent font-medium">
                         +$
                         {(
                           (addons.ledLighting
@@ -366,7 +366,7 @@ export function Calculator() {
                   className={`w-full py-5 font-medium flex items-center justify-center gap-3 transition-all text-lg tracking-wide ${
                     submitted
                       ? "bg-green-500 text-white"
-                      : "bg-gold text-obsidian hover:bg-gold/90"
+                      : "bg-accent text-foreground hover:bg-accent/90"
                   }`}
                 >
                   {isSubmitting ? (

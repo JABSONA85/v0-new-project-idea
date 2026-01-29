@@ -20,7 +20,7 @@ export function About() {
   }
 
   return (
-    <section id="about" className="relative py-32 md:py-40 bg-obsidian overflow-hidden">
+    <section id="about" className="relative py-32 md:py-40 bg-primary overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -51,7 +51,7 @@ export function About() {
             className="inline-flex items-center gap-4 mb-8"
           >
             <span className="w-12 h-px bg-gold/60" />
-            <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">
+            <span className="text-accent text-sm tracking-[0.3em] uppercase font-medium">
               {t.nav.portfolio === "პორტფოლიო" ? "ჩვენს შესახებ" : t.nav.portfolio === "Portfolio" ? "About Us" : "О нас"}
             </span>
             <span className="w-12 h-px bg-gold/60" />
@@ -62,7 +62,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-offwhite mb-8 text-balance"
+            className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground mb-8 text-balance"
           >
             {t.nav.portfolio === "პორტფოლიო" 
               ? "ოსტატობა და ხარისხი" 
@@ -76,7 +76,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-offwhite/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+            className="text-primary-foreground/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
           >
             {t.nav.portfolio === "პორტფოლიო" 
               ? "15 წელზე მეტია ვქმნით უნიკალურ ავეჯს და გრანიტის ნიჟარებს. ყოველი პროექტი არის ხელოვნების ნიმუში, შექმნილი თქვენი ხედვისა და ჩვენი ოსტატობის შერწყმით." 
@@ -108,11 +108,11 @@ export function About() {
                   <stat.icon className="w-7 h-7 text-gold" />
                 </div>
                 
-                <div className="font-serif text-4xl md:text-5xl text-offwhite mb-3">
+                <div className="font-serif text-4xl md:text-5xl text-primary-foreground mb-3">
                   {stat.value}
                 </div>
                 
-                <div className="text-offwhite/50 text-sm tracking-wide uppercase">
+                <div className="text-primary-foreground/50 text-sm tracking-wide uppercase">
                   {getLabel(stat)}
                 </div>
               </div>

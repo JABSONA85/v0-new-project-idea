@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useLanguage, type Language } from "@/lib/language-context"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const languages: { code: Language; label: string }[] = [
   { code: "ka", label: "ქარ" },
@@ -60,8 +61,9 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Language Switcher & Admin */}
-            <div className="hidden md:flex items-center gap-4">
+            {/* Theme Toggle, Language Switcher & Admin */}
+            <div className="hidden md:flex items-center gap-3">
+              <ThemeToggle />
               <div className="flex items-center bg-white/10 rounded-full p-1">
                 {languages.map((lang) => (
                   <motion.button
@@ -127,20 +129,23 @@ export function Navigation() {
                 >
                   {t.nav.admin}
                 </Link>
-                <div className="flex items-center gap-2 pt-2">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => setLanguage(lang.code)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                        language === lang.code
-                          ? "bg-gold text-obsidian"
-                          : "bg-white/10 text-offwhite/70"
-                      }`}
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center gap-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => setLanguage(lang.code)}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                          language === lang.code
+                            ? "bg-gold text-obsidian"
+                            : "bg-white/10 text-offwhite/70"
+                        }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </div>
+                  <ThemeToggle />
                 </div>
               </div>
             </motion.div>

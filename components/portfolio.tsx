@@ -91,7 +91,7 @@ export function Portfolio() {
       : portfolioItems.filter((item) => item.category === activeCategory)
 
   return (
-    <section id="portfolio" className="py-32 lg:py-40 bg-obsidian relative overflow-hidden">
+    <section id="portfolio" className="py-32 lg:py-40 bg-primary relative overflow-hidden">
       {/* Decorative corner elements */}
       <div className="absolute top-12 left-12 w-24 h-24 border-l border-t border-gold/10 hidden lg:block" />
       <div className="absolute top-12 right-12 w-24 h-24 border-r border-t border-gold/10 hidden lg:block" />
@@ -100,9 +100,9 @@ export function Portfolio() {
 
       {/* Background decorative lines */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-offwhite" />
-        <div className="absolute top-0 left-1/2 w-px h-full bg-offwhite" />
-        <div className="absolute top-0 left-3/4 w-px h-full bg-offwhite" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-primary-foreground" />
+        <div className="absolute top-0 left-1/2 w-px h-full bg-primary-foreground" />
+        <div className="absolute top-0 left-3/4 w-px h-full bg-primary-foreground" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -122,11 +122,11 @@ export function Portfolio() {
             className="w-20 h-px bg-gold mx-auto mb-10"
           />
           
-          <span className="text-gold/80 text-xs md:text-sm tracking-[0.5em] uppercase mb-6 block font-medium">
+          <span className="text-accent/80 text-xs md:text-sm tracking-[0.5em] uppercase mb-6 block font-medium">
             Our Portfolio
           </span>
           
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-offwhite mb-8 tracking-tight">
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary-foreground mb-8 tracking-tight">
             {t.portfolio.title}
           </h2>
           
@@ -137,7 +137,7 @@ export function Portfolio() {
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold/30" />
           </div>
           
-          <p className="text-offwhite/50 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-primary-foreground/50 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
             {t.portfolio.subtitle}
           </p>
         </motion.div>
@@ -158,8 +158,8 @@ export function Portfolio() {
               whileTap={{ scale: 0.95 }}
               className={`px-8 py-4 text-sm tracking-wider uppercase font-medium transition-all duration-300 ${
                 activeCategory === category.key
-                  ? "bg-gold text-obsidian"
-                  : "bg-transparent text-offwhite/60 border border-offwhite/10 hover:border-gold/50 hover:text-offwhite"
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-transparent text-primary-foreground/60 border border-primary-foreground/10 hover:border-accent/50 hover:text-primary-foreground"
               }`}
             >
               {category.label}
@@ -196,7 +196,7 @@ export function Portfolio() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
 
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -206,15 +206,15 @@ export function Portfolio() {
                       transition={{ delay: 0.2 }}
                     >
                       {/* Category tag */}
-                      <span className="inline-block text-gold text-[10px] tracking-[0.3em] uppercase mb-4 pb-2 border-b border-gold/30">
+                      <span className="inline-block text-accent text-[10px] tracking-[0.3em] uppercase mb-4 pb-2 border-b border-accent/30">
                         {categories.find((c) => c.key === item.category)?.label}
                       </span>
                       
-                      <h3 className="font-serif text-2xl md:text-3xl text-offwhite mb-3 group-hover:text-gold transition-colors duration-300 leading-tight">
+                      <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
                         {item.title}
                       </h3>
                       
-                      <p className="text-offwhite/50 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      <p className="text-primary-foreground/50 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
                         {item.description}
                       </p>
                     </motion.div>

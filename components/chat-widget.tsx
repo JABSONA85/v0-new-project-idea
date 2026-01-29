@@ -80,7 +80,7 @@ export function ChatWidget() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/30 transition-shadow"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-shadow"
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -90,7 +90,7 @@ export function ChatWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
             >
-              <X className="w-6 h-6 text-obsidian" />
+              <X className="w-6 h-6 text-accent-foreground" />
             </motion.div>
           ) : (
             <motion.div
@@ -99,7 +99,7 @@ export function ChatWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
             >
-              <MessageCircle className="w-6 h-6 text-obsidian" />
+              <MessageCircle className="w-6 h-6 text-accent-foreground" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -113,23 +113,23 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-offwhite rounded-2xl shadow-2xl border border-obsidian/10 overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-background rounded-2xl shadow-2xl border border-border overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-obsidian px-6 py-4 flex items-center gap-3">
-              <div className="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-gold" />
+            <div className="bg-primary px-6 py-4 flex items-center gap-3">
+              <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h3 className="font-serif text-lg text-offwhite">
+                <h3 className="font-serif text-lg text-primary-foreground">
                   {t.chat.title}
                 </h3>
-                <p className="text-offwhite/60 text-xs">AI-Powered Assistant</p>
+                <p className="text-primary-foreground/60 text-xs">AI-Powered Assistant</p>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="h-80 overflow-y-auto p-4 space-y-4 bg-white/50">
+            <div className="h-80 overflow-y-auto p-4 space-y-4 bg-card/50">
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
@@ -142,14 +142,14 @@ export function ChatWidget() {
                   <div
                     className={`max-w-[80%] px-4 py-3 rounded-2xl ${
                       message.isBot
-                        ? "bg-white text-obsidian rounded-tl-sm"
-                        : "bg-obsidian text-offwhite rounded-tr-sm"
+                        ? "bg-card text-card-foreground rounded-tl-sm"
+                        : "bg-primary text-primary-foreground rounded-tr-sm"
                     }`}
                   >
                     <p className="text-sm leading-relaxed">{message.text}</p>
                     <p
                       className={`text-xs mt-1 ${
-                        message.isBot ? "text-obsidian/40" : "text-offwhite/40"
+                        message.isBot ? "text-card-foreground/40" : "text-primary-foreground/40"
                       }`}
                     >
                       {message.timestamp.toLocaleTimeString([], {
@@ -167,15 +167,15 @@ export function ChatWidget() {
                   animate={{ opacity: 1 }}
                   className="flex justify-start"
                 >
-                  <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm">
+                  <div className="bg-card px-4 py-3 rounded-2xl rounded-tl-sm">
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-obsidian/40 rounded-full animate-bounce" />
+                      <span className="w-2 h-2 bg-foreground/40 rounded-full animate-bounce" />
                       <span
-                        className="w-2 h-2 bg-obsidian/40 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-foreground/40 rounded-full animate-bounce"
                         style={{ animationDelay: "0.1s" }}
                       />
                       <span
-                        className="w-2 h-2 bg-obsidian/40 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-foreground/40 rounded-full animate-bounce"
                         style={{ animationDelay: "0.2s" }}
                       />
                     </div>
@@ -186,7 +186,7 @@ export function ChatWidget() {
             </div>
 
             {/* Input */}
-            <div className="p-4 bg-white border-t border-obsidian/10">
+            <div className="p-4 bg-card border-t border-border">
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -194,19 +194,19 @@ export function ChatWidget() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSend()}
                   placeholder={t.chat.placeholder}
-                  className="flex-1 px-4 py-3 rounded-full bg-secondary text-obsidian text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
+                  className="flex-1 px-4 py-3 rounded-full bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
                 />
                 <motion.button
                   onClick={handleSend}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   disabled={!input.trim()}
-                  className="w-10 h-10 bg-gold rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-10 h-10 bg-accent rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4 text-obsidian" />
+                  <Send className="w-4 h-4 text-accent-foreground" />
                 </motion.button>
               </div>
-              <p className="text-xs text-obsidian/40 text-center mt-2">
+              <p className="text-xs text-muted-foreground text-center mt-2">
                 Ready for n8n AI integration
               </p>
             </div>

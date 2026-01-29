@@ -191,32 +191,32 @@ function AdminContent() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-obsidian">
+      <header className="bg-primary">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="text-offwhite/60 hover:text-gold transition-colors"
+                className="text-primary-foreground/60 hover:text-accent transition-colors"
               >
                 <ArrowLeft size={20} />
               </Link>
               <div>
-                <h1 className="font-serif text-2xl text-offwhite">
+                <h1 className="font-serif text-2xl text-primary-foreground">
                   {t.admin.title}
                 </h1>
-                <p className="text-offwhite/60 text-sm">Manage your studio</p>
+                <p className="text-primary-foreground/60 text-sm">Manage your studio</p>
               </div>
             </div>
-            <span className="font-serif text-xl text-offwhite">
-              ARTISAN<span className="text-gold">.</span>
+            <span className="font-serif text-xl text-primary-foreground">
+              ARTISAN<span className="text-accent">.</span>
             </span>
           </div>
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="bg-obsidian/95 border-b border-white/10">
+      <div className="bg-primary/95 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex gap-1">
             {tabs.map((tab) => (
@@ -225,8 +225,8 @@ function AdminContent() {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-6 py-4 flex items-center gap-2 text-sm font-medium transition-all border-b-2 ${
                   activeTab === tab.key
-                    ? "text-gold border-gold"
-                    : "text-offwhite/60 border-transparent hover:text-offwhite"
+                    ? "text-accent border-accent"
+                    : "text-primary-foreground/60 border-transparent hover:text-primary-foreground"
                 }`}
               >
                 <tab.icon size={18} />
@@ -317,7 +317,7 @@ function AdminContent() {
                                 {request.dimensions}
                               </p>
                               {request.addons.length > 0 && (
-                                <p className="text-gold text-xs mt-1">
+                                <p className="text-accent text-xs mt-1">
                                   + {request.addons.join(", ")}
                                 </p>
                               )}
@@ -380,7 +380,7 @@ function AdminContent() {
             >
               {/* Add Button */}
               <div className="mb-6 flex justify-end">
-                <button className="px-4 py-2 bg-gold text-obsidian rounded-xl flex items-center gap-2 font-medium hover:bg-gold/90 transition-colors">
+                <button className="px-4 py-2 bg-accent text-accent-foreground rounded-xl flex items-center gap-2 font-medium hover:bg-accent/90 transition-colors">
                   <Plus size={18} />
                   Add Project
                 </button>
@@ -401,11 +401,11 @@ function AdminContent() {
                         className="w-full h-full object-cover"
                       />
                       {project.featured && (
-                        <span className="absolute top-4 left-4 px-3 py-1 bg-gold text-obsidian text-xs font-medium rounded-full">
+                        <span className="absolute top-4 left-4 px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full">
                           Featured
                         </span>
                       )}
-                      <div className="absolute inset-0 bg-obsidian/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                      <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
                         <button className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
                           <Edit3 size={16} />
                         </button>
@@ -429,7 +429,7 @@ function AdminContent() {
                           onClick={() => toggleFeatured(project.id)}
                           className={`p-2 rounded-lg transition-colors ${
                             project.featured
-                              ? "bg-gold/20 text-gold"
+                              ? "bg-accent/20 text-accent"
                               : "bg-muted text-muted-foreground hover:text-foreground"
                           }`}
                         >
@@ -571,7 +571,7 @@ function AdminContent() {
                       className="p-4 bg-muted/50 rounded-xl flex items-center justify-between"
                     >
                       <span className="font-medium">{addon.name}</span>
-                      <span className="font-serif text-lg text-gold">
+                      <span className="font-serif text-lg text-accent">
                         ${addon.price}
                       </span>
                     </div>

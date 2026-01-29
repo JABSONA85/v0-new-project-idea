@@ -8,11 +8,11 @@ export function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-offwhite">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Elegant geometric background pattern */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50Z' fill='none' stroke='%23111111' strokeWidth='0.5'/%3E%3C/svg%3E")`,
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50Z' fill='none' stroke='currentColor' strokeWidth='0.5'/%3E%3C/svg%3E")`,
           backgroundSize: '100px 100px'
         }} />
       </div>
@@ -70,11 +70,11 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center gap-4 mb-10"
         >
-          <div className="w-8 h-px bg-obsidian/20" />
-          <p className="text-gold text-xs md:text-sm tracking-[0.4em] uppercase font-medium">
+          <div className="w-8 h-px bg-foreground/20" />
+          <p className="text-accent text-xs md:text-sm tracking-[0.4em] uppercase font-medium">
             Est. 2015 — Tbilisi, Georgia
           </p>
-          <div className="w-8 h-px bg-obsidian/20" />
+          <div className="w-8 h-px bg-foreground/20" />
         </motion.div>
 
         {/* Main Title - Much larger and bolder */}
@@ -82,7 +82,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-obsidian leading-[0.9] mb-10 text-balance tracking-tight"
+          className="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-foreground leading-[0.9] mb-10 text-balance tracking-tight"
         >
           {t.hero.title}
         </motion.h1>
@@ -104,7 +104,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-obsidian/50 text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-16 leading-relaxed font-light"
+          className="text-muted-foreground text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-16 leading-relaxed font-light"
         >
           {t.hero.subtitle}
         </motion.p>
@@ -120,7 +120,7 @@ export function Hero() {
             href="#portfolio"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-4 bg-obsidian text-offwhite px-10 py-5 text-lg font-medium transition-all hover:bg-obsidian/90"
+            className="group flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 text-lg font-medium transition-all hover:bg-primary/90"
           >
             <Play size={20} className="fill-current" />
             <span className="tracking-wide">{t.hero.cta}</span>
@@ -129,7 +129,7 @@ export function Hero() {
             href="#calculator"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-4 bg-transparent text-obsidian px-10 py-5 text-lg font-medium border border-obsidian/20 hover:border-gold hover:text-gold transition-all"
+            className="group flex items-center gap-4 bg-transparent text-foreground px-10 py-5 text-lg font-medium border border-border hover:border-accent hover:text-accent transition-all"
           >
             <span className="tracking-wide">{t.hero.secondary}</span>
           </motion.a>
@@ -145,10 +145,10 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-3 text-obsidian/30"
+            className="flex flex-col items-center gap-3 text-foreground/30"
           >
             <span className="text-[10px] tracking-[0.3em] uppercase font-medium">Scroll to explore</span>
-            <div className="w-px h-8 bg-gradient-to-b from-obsidian/30 to-transparent" />
+            <div className="w-px h-8 bg-gradient-to-b from-foreground/30 to-transparent" />
             <ArrowDown size={16} />
           </motion.div>
         </motion.div>
@@ -163,7 +163,7 @@ export function Hero() {
       >
         <div className="w-px h-32 bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
         <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-        <span className="text-[10px] tracking-[0.4em] text-obsidian/30 rotate-90 origin-center whitespace-nowrap font-medium uppercase">
+        <span className="text-[10px] tracking-[0.4em] text-foreground/30 rotate-90 origin-center whitespace-nowrap font-medium uppercase">
           Luxury Furniture
         </span>
         <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
@@ -178,7 +178,7 @@ export function Hero() {
       >
         <div className="w-px h-32 bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
         <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-        <span className="text-[10px] tracking-[0.4em] text-obsidian/30 -rotate-90 origin-center whitespace-nowrap font-medium uppercase">
+        <span className="text-[10px] tracking-[0.4em] text-foreground/30 -rotate-90 origin-center whitespace-nowrap font-medium uppercase">
           Granite Sinks
         </span>
         <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
