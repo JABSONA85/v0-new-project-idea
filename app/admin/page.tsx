@@ -325,7 +325,7 @@ function AdminContent() {
                           </td>
                           <td className="px-6 py-4">
                             <span className="font-serif text-lg">
-                              ${request.total.toLocaleString()}
+                              {request.total.toLocaleString()} ₾
                             </span>
                           </td>
                           <td className="px-6 py-4">
@@ -511,7 +511,7 @@ function AdminContent() {
                             />
                           ) : (
                             <span className="font-serif text-lg">
-                              ${rate.ratePerSqM}
+                              {rate.ratePerSqM} ₾
                             </span>
                           )}
                         </td>
@@ -572,7 +572,7 @@ function AdminContent() {
                     >
                       <span className="font-medium">{addon.name}</span>
                       <span className="font-serif text-lg text-accent">
-                        ${addon.price}
+                        {addon.price} ₾
                       </span>
                     </div>
                   ))}

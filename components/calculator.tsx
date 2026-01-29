@@ -276,7 +276,7 @@ export function Calculator() {
                         {addon.label}
                       </Label>
                     </div>
-                    <span className="text-sm text-accent font-medium">+${addon.price}</span>
+                    <span className="text-sm text-accent font-medium">+{addon.price} ₾</span>
                   </div>
                 ))}
               </div>
@@ -316,7 +316,7 @@ export function Calculator() {
                   className="mb-10"
                 >
                   <span className="font-serif text-7xl lg:text-8xl xl:text-9xl text-primary-foreground tracking-tight">
-                    ${totalPrice.toLocaleString()}
+                    {totalPrice.toLocaleString()} ₾
                   </span>
                 </motion.div>
 
