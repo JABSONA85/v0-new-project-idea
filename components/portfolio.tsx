@@ -142,30 +142,51 @@ export function Portfolio() {
           </p>
         </motion.div>
 
-        {/* Category Filter - More elegant */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category.key}
-              onClick={() => setActiveCategory(category.key)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-8 py-4 text-sm tracking-wider uppercase font-medium transition-all duration-300 ${
-                activeCategory === category.key
-                  ? "bg-accent text-accent-foreground"
-                  : "bg-transparent text-primary-foreground/60 border border-primary-foreground/10 hover:border-accent/50 hover:text-primary-foreground"
-              }`}
-            >
-              {category.label}
-            </motion.button>
-          ))}
-        </motion.div>
+        {/* Category Filter - Wow animations from different directions */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {categories.map((category, index) => {
+            // Define unique animation directions for each button
+            const animationVariants: Record<string, { initial: { x?: number; y?: number; opacity: number }; animate: { x: number; y: number; opacity: number } }> = {
+              all: { initial: { x: -150, opacity: 0 }, animate: { x: 0, y: 0, opacity: 1 } },           // from left
+              laminate: { initial: { y: -100, opacity: 0 }, animate: { x: 0, y: 0, opacity: 1 } },      // from top
+              solidWood: { initial: { y: -100, opacity: 0 }, animate: { x: 0, y: 0, opacity: 1 } },     // from top
+              granite: { initial: { x: 150, opacity: 0 }, animate: { x: 0, y: 0, opacity: 1 } },        // from right
+              bedrooms: { initial: { y: 100, opacity: 0 }, animate: { x: 0, y: 0, opacity: 1 } },       // from bottom
+            }
+            
+            const variant = animationVariants[category.key]
+            const delays = { all: 0, laminate: 0.15, solidWood: 0.3, granite: 0.45, bedrooms: 0.6 }
+            
+            return (
+              <motion.button
+                key={category.key}
+                onClick={() => setActiveCategory(category.key)}
+                initial={variant.initial}
+                whileInView={variant.animate}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: delays[category.key as keyof typeof delays],
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }}
+                whileHover={{ 
+                  scale: 1.08,
+                  boxShadow: "0 10px 40px rgba(184, 160, 120, 0.3)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-8 py-4 text-sm tracking-wider uppercase font-medium transition-all duration-300 ${
+                  activeCategory === category.key
+                    ? "bg-accent text-accent-foreground shadow-lg shadow-accent/20"
+                    : "bg-transparent text-primary-foreground/60 border border-primary-foreground/10 hover:border-accent/50 hover:text-primary-foreground"
+                }`}
+              >
+                {category.label}
+              </motion.button>
+            )
+          })}
+        </div>
 
         {/* Masonry Grid */}
         <motion.div
