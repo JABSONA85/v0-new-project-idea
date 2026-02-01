@@ -8,6 +8,7 @@ interface Translations {
 nav: {
       home: string
       portfolio: string
+      cncAi: string
       visualizer: string
       calculator: string
       about: string
@@ -103,6 +104,28 @@ nav: {
       rustic: string
     }
   }
+  cncAi: {
+    badge: string
+    title: string
+    subtitle: string
+    cta: string
+    services: {
+      parametric: string
+      parametricDesc: string
+      aiDesign: string
+      aiDesignDesc: string
+      precision: string
+      precisionDesc: string
+      custom: string
+      customDesc: string
+    }
+    showcase: {
+      coffeeTable: string
+      coffeeTableDesc: string
+      wallArt: string
+      wallArtDesc: string
+    }
+  }
 }
 
 const translations: Record<Language, Translations> = {
@@ -110,6 +133,7 @@ const translations: Record<Language, Translations> = {
     nav: {
       home: "მთავარი",
       portfolio: "პორტფოლიო",
+      cncAi: "CNC+AI",
       visualizer: "AI ვიზუალიზატორი",
       calculator: "კალკულატორი",
       about: "ჩვენს შესახებ",
@@ -205,11 +229,34 @@ const translations: Record<Language, Translations> = {
         rustic: "რუსტიკული",
       },
     },
+    cncAi: {
+      badge: "ინოვაცია და ტექნოლოგია",
+      title: "CNC + AI",
+      subtitle: "პარამეტრული დიზაინი ხვდება ხელოვნურ ინტელექტს. შექმენით უნიკალური ავეჯი თანამედროვე ტექნოლოგიით.",
+      cta: "შექმენი შენი დიზაინი",
+      services: {
+        parametric: "პარამეტრული დიზაინი",
+        parametricDesc: "ალგორითმული ფორმები და ორგანული სტრუქტურები მათემატიკური სიზუსტით.",
+        aiDesign: "AI დიზაინი",
+        aiDesignDesc: "ხელოვნური ინტელექტი ქმნის უნიკალურ ვიზუალურ გადაწყვეტილებებს.",
+        precision: "CNC სიზუსტე",
+        precisionDesc: "კომპიუტერული დამუშავება 0.1მმ სიზუსტით.",
+        custom: "ინდივიდუალური",
+        customDesc: "თითოეული პროექტი უნიკალურია და შექმნილია თქვენთვის.",
+      },
+      showcase: {
+        coffeeTable: "პარამეტრული ჟურნალის მაგიდა",
+        coffeeTableDesc: "ორგანული ფორმების ხის სტრუქტურა მინის ზედაპირით. თითოეული ელემენტი CNC-ზე დამზადებული.",
+        wallArt: "3D კედლის პანელი",
+        wallArtDesc: "სკულპტურული კედლის ხელოვნება პარამეტრული ტალღებით. AI-გენერირებული დიზაინი.",
+      },
+    },
   },
   en: {
     nav: {
       home: "Home",
       portfolio: "Portfolio",
+      cncAi: "CNC+AI",
       visualizer: "AI Visualizer",
       calculator: "Calculator",
       about: "About",
@@ -305,11 +352,34 @@ const translations: Record<Language, Translations> = {
         rustic: "Rustic",
       },
     },
+    cncAi: {
+      badge: "Innovation & Technology",
+      title: "CNC + AI",
+      subtitle: "Parametric design meets artificial intelligence. Create unique, one-of-a-kind furniture pieces with cutting-edge technology.",
+      cta: "Design Your Piece",
+      services: {
+        parametric: "Parametric Design",
+        parametricDesc: "Algorithmic forms and organic structures with mathematical precision.",
+        aiDesign: "AI Design",
+        aiDesignDesc: "Artificial intelligence creates unique visual solutions.",
+        precision: "CNC Precision",
+        precisionDesc: "Computer-controlled machining with 0.1mm accuracy.",
+        custom: "Custom Made",
+        customDesc: "Each project is unique and created just for you.",
+      },
+      showcase: {
+        coffeeTable: "Parametric Coffee Table",
+        coffeeTableDesc: "Organic wood structure with glass surface. Each element CNC-machined.",
+        wallArt: "3D Wall Panel",
+        wallArtDesc: "Sculptural wall art with parametric waves. AI-generated design.",
+      },
+    },
   },
   ru: {
     nav: {
       home: "Главная",
       portfolio: "Портфолио",
+      cncAi: "CNC+AI",
       visualizer: "AI Визуализатор",
       calculator: "Калькулятор",
       about: "О нас",
@@ -403,6 +473,28 @@ const translations: Record<Language, Translations> = {
         classic: "Классический",
         minimalist: "Минималистичный",
         rustic: "Рустикальный",
+      },
+    },
+    cncAi: {
+      badge: "Инновации и Технологии",
+      title: "CNC + AI",
+      subtitle: "Параметрический дизайн встречает искусственный интеллект. Создайте уникальную мебель с передовыми технологиями.",
+      cta: "Создай свой дизайн",
+      services: {
+        parametric: "Параметрический дизайн",
+        parametricDesc: "Алгоритмические формы и органические структуры с математической точностью.",
+        aiDesign: "AI дизайн",
+        aiDesignDesc: "Искусственный интеллект создает уникальные визуальные решения.",
+        precision: "CNC точность",
+        precisionDesc: "Компьютерная обработка с точностью 0.1мм.",
+        custom: "Индивидуально",
+        customDesc: "Каждый проект уникален и создан специально для вас.",
+      },
+      showcase: {
+        coffeeTable: "Параметрический журнальный столик",
+        coffeeTableDesc: "Органическая деревянная структура со стеклянной поверхностью. Каждый элемент обработан на CNC.",
+        wallArt: "3D панель для стены",
+        wallArtDesc: "Скульптурное настенное искусство с параметрическими волнами. AI-генерированный дизайн.",
       },
     },
   },

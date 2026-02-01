@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { Portfolio } from "@/components/portfolio"
 import { About } from "@/components/about"
+import { CncAiServices } from "@/components/cnc-ai-services"
 import { RoomVisualizer } from "@/components/room-visualizer"
 import { Calculator } from "@/components/calculator"
 import { ChatWidget } from "@/components/chat-widget"
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <Portfolio />
         <About />
+        <CncAiServices />
         <RoomVisualizer />
         <Calculator />
         <Footer />
