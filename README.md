@@ -39,7 +39,7 @@ Premium custom furniture and granite sink studio website built with Next.js 16, 
   hero.tsx            # Hero section with luxury typography
   portfolio.tsx       # Masonry grid gallery with category filters
   about.tsx           # About section with statistics
-  kitchen-visualizer.tsx  # AI Kitchen Visualizer (needs Fal AI integration)
+  room-visualizer.tsx     # AI Room Visualizer for all products (needs Fal AI integration)
   calculator.tsx      # Interactive price calculator
   chat-widget.tsx     # AI chat widget (ready for n8n integration)
   footer.tsx          # Footer with contact info
@@ -87,13 +87,24 @@ All translations are in `/lib/language-context.tsx`.
 - Live price calculation in Georgian Lari (GEL)
 - Quote request form
 
-### 6. AI Kitchen Visualizer (UI Ready)
+### 6. AI Room Visualizer (UI Ready)
+Universal furniture visualization tool supporting ALL products:
+
+**Supported Products:**
+- Laminate Kitchens (სამზარეულო)
+- Bedrooms (საძინებელი)
+- Solid Wood Furniture (მასიური ხის ავეჯი)
+- Granite Sinks (გრანიტის ნიჟარა)
+
+**Features:**
 - Drag & drop image upload
+- Product category selection
 - Style selection (Modern, Classic, Minimalist, Rustic)
 - Generate button with loading states
 - Result preview panel
+- Download generated image
 
-**Note**: Requires Fal AI integration to function. Connect Fal AI and update the `handleGenerate` function in `/components/kitchen-visualizer.tsx`.
+**Note**: Requires Fal AI integration to function. Connect Fal AI and update the `handleGenerate` function in `/components/room-visualizer.tsx`.
 
 ### 7. AI Chat Widget (UI Ready)
 - Floating chat button
@@ -111,9 +122,10 @@ All translations are in `/lib/language-context.tsx`.
 
 ### For Full Functionality:
 
-1. **Fal AI** - For kitchen visualization AI generation
+1. **Fal AI** - For room visualization AI generation (all products)
    - Add `FAL_KEY` environment variable
-   - Update `/components/kitchen-visualizer.tsx` handleGenerate function
+   - Update `/components/room-visualizer.tsx` handleGenerate function
+   - Supports: kitchens, bedrooms, solid wood furniture, granite sinks
 
 2. **Database** (Supabase/Neon recommended) - For storing:
    - Price requests

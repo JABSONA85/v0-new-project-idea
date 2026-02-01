@@ -5,7 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { Portfolio } from "@/components/portfolio"
 import { About } from "@/components/about"
-import { KitchenVisualizer } from "@/components/kitchen-visualizer"
+import { RoomVisualizer } from "@/components/room-visualizer"
 import { Calculator } from "@/components/calculator"
 import { ChatWidget } from "@/components/chat-widget"
 import { Footer } from "@/components/footer"
@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <Portfolio />
         <About />
-        <KitchenVisualizer />
+        <RoomVisualizer />
         <Calculator />
         <Footer />
         <ChatWidget />

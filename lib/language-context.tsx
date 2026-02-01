@@ -77,6 +77,9 @@ nav: {
     dragDrop: string
     orClick: string
     imageUploaded: string
+    change: string
+    selectProduct: string
+    selectStyle: string
     generate: string
     generating: string
     aiWorking: string
@@ -87,6 +90,12 @@ nav: {
     howItWorks: string
     howItWorksDesc: string
     notConnected: string
+    products: {
+      kitchen: string
+      bedroom: string
+      solidwood: string
+      granite: string
+    }
     styles: {
       modern: string
       classic: string
@@ -162,14 +171,17 @@ const translations: Record<Language, Translations> = {
       pricingTable: "ფასების ცხრილი",
     },
     visualizer: {
-      title: "სამზარეულოს ვიზუალიზატორი",
-      subtitle: "ატვირთეთ თქვენი ოთახის ფოტო და ნახეთ როგორი იქნება ახალი სამზარეულო",
+      title: "ოთახის ვიზუალიზატორი",
+      subtitle: "ატვირთეთ თქვენი ოთახის ფოტო და ნახეთ როგორი იქნება ახალი ავეჯი",
       step1: "ატვირთეთ ფოტო",
-      step2: "აირჩიეთ სტილი",
+      step2: "აირჩიეთ პროდუქტი",
       step3: "შედეგი",
       dragDrop: "ჩააგდეთ ფოტო აქ",
       orClick: "ან დააჭირეთ ასარჩევად",
       imageUploaded: "ფოტო ატვირთულია",
+      change: "შეცვლა",
+      selectProduct: "აირჩიეთ პროდუქტი",
+      selectStyle: "აირჩიეთ სტილი",
       generate: "გენერირება",
       generating: "გენერირება...",
       aiWorking: "AI მუშაობს...",
@@ -178,8 +190,14 @@ const translations: Record<Language, Translations> = {
       resultReady: "შედეგი მზადაა",
       download: "ჩამოტვირთვა",
       howItWorks: "როგორ მუშაობს?",
-      howItWorksDesc: "AI ანალიზებს თქვენს ოთახს და ქმნის რეალისტურ ვიზუალიზაციას არჩეული სტილის სამზარეულოთი.",
+      howItWorksDesc: "AI ანალიზებს თქვენს ოთახს და ქმნის რეალისტურ ვიზუალიზაციას არჩეული პროდუქტით და სტილით.",
       notConnected: "AI სერვისი ჯერ არ არის დაკავშირებული. გთხოვთ დააკავშიროთ Fal AI.",
+      products: {
+        kitchen: "სამზარეულო",
+        bedroom: "საძინებელი",
+        solidwood: "მასიური ხის ავეჯი",
+        granite: "გრანიტის ნიჟარა",
+      },
       styles: {
         modern: "თანამედროვე",
         classic: "კლასიკური",
@@ -253,14 +271,17 @@ const translations: Record<Language, Translations> = {
       pricingTable: "Pricing Table",
     },
     visualizer: {
-      title: "Kitchen Visualizer",
-      subtitle: "Upload your room photo and see how your new kitchen will look",
+      title: "Room Visualizer",
+      subtitle: "Upload your room photo and see how your new furniture will look",
       step1: "Upload Photo",
-      step2: "Choose Style",
+      step2: "Choose Product",
       step3: "Result",
       dragDrop: "Drop photo here",
       orClick: "or click to select",
       imageUploaded: "Photo uploaded",
+      change: "Change",
+      selectProduct: "Select Product",
+      selectStyle: "Select Style",
       generate: "Generate",
       generating: "Generating...",
       aiWorking: "AI is working...",
@@ -269,8 +290,14 @@ const translations: Record<Language, Translations> = {
       resultReady: "Result is ready",
       download: "Download",
       howItWorks: "How it works?",
-      howItWorksDesc: "AI analyzes your room and creates a realistic visualization with your chosen kitchen style.",
+      howItWorksDesc: "AI analyzes your room and creates a realistic visualization with your chosen product and style.",
       notConnected: "AI service is not connected yet. Please connect Fal AI.",
+      products: {
+        kitchen: "Kitchen",
+        bedroom: "Bedroom",
+        solidwood: "Solid Wood Furniture",
+        granite: "Granite Sink",
+      },
       styles: {
         modern: "Modern",
         classic: "Classic",
@@ -344,14 +371,17 @@ const translations: Record<Language, Translations> = {
       pricingTable: "Таблица цен",
     },
     visualizer: {
-      title: "Визуализатор кухни",
-      subtitle: "Загрузите фото комнаты и увидите, как будет выглядеть новая кухня",
+      title: "Визуализатор комнаты",
+      subtitle: "Загрузите фото комнаты и увидите, как будет выглядеть новая мебель",
       step1: "Загрузите фото",
-      step2: "Выберите стиль",
+      step2: "Выберите продукт",
       step3: "Результат",
       dragDrop: "Перетащите фото сюда",
       orClick: "или нажмите для выбора",
       imageUploaded: "Фото загружено",
+      change: "Изменить",
+      selectProduct: "Выберите продукт",
+      selectStyle: "Выберите стиль",
       generate: "Сгенерировать",
       generating: "Генерация...",
       aiWorking: "AI работает...",
@@ -360,8 +390,14 @@ const translations: Record<Language, Translations> = {
       resultReady: "Результат готов",
       download: "Скачать",
       howItWorks: "Как это работает?",
-      howItWorksDesc: "AI анализирует вашу комнату и создает реалистичную визуализацию с выбранным стилем кухни.",
+      howItWorksDesc: "AI анализирует вашу комнату и создает реалистичную визуализацию с выбранным продуктом и стилем.",
       notConnected: "AI сервис еще не подключен. Пожалуйста, подключите Fal AI.",
+      products: {
+        kitchen: "Кухня",
+        bedroom: "Спальня",
+        solidwood: "Мебель из массива",
+        granite: "Гранитная мойка",
+      },
       styles: {
         modern: "Современный",
         classic: "Классический",
