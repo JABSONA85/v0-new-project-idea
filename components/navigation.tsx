@@ -19,6 +19,7 @@ export function Navigation() {
 
   const navItems = [
     { href: "#portfolio", label: t.nav.portfolio },
+    { href: "#visualizer", label: t.nav.visualizer },
     { href: "#calculator", label: t.nav.calculator },
     { href: "#about", label: t.nav.about },
     { href: "#contact", label: t.nav.contact },

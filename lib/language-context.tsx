@@ -5,14 +5,15 @@ import { createContext, useContext, useState, type ReactNode } from "react"
 export type Language = "ka" | "en" | "ru"
 
 interface Translations {
-  nav: {
-    home: string
-    portfolio: string
-    calculator: string
-    about: string
-    contact: string
-    admin: string
-  }
+nav: {
+      home: string
+      portfolio: string
+      visualizer: string
+      calculator: string
+      about: string
+      contact: string
+      admin: string
+    }
   hero: {
     title: string
     subtitle: string
@@ -67,6 +68,32 @@ interface Translations {
     projectManager: string
     pricingTable: string
   }
+  visualizer: {
+    title: string
+    subtitle: string
+    step1: string
+    step2: string
+    step3: string
+    dragDrop: string
+    orClick: string
+    imageUploaded: string
+    generate: string
+    generating: string
+    aiWorking: string
+    pleaseWait: string
+    resultPlaceholder: string
+    resultReady: string
+    download: string
+    howItWorks: string
+    howItWorksDesc: string
+    notConnected: string
+    styles: {
+      modern: string
+      classic: string
+      minimalist: string
+      rustic: string
+    }
+  }
 }
 
 const translations: Record<Language, Translations> = {
@@ -74,6 +101,7 @@ const translations: Record<Language, Translations> = {
     nav: {
       home: "მთავარი",
       portfolio: "პორტფოლიო",
+      visualizer: "AI ვიზუალიზატორი",
       calculator: "კალკულატორი",
       about: "ჩვენს შესახებ",
       contact: "კონტაქტი",
@@ -133,11 +161,38 @@ const translations: Record<Language, Translations> = {
       projectManager: "პროექტების მართვა",
       pricingTable: "ფასების ცხრილი",
     },
+    visualizer: {
+      title: "სამზარეულოს ვიზუალიზატორი",
+      subtitle: "ატვირთეთ თქვენი ოთახის ფოტო და ნახეთ როგორი იქნება ახალი სამზარეულო",
+      step1: "ატვირთეთ ფოტო",
+      step2: "აირჩიეთ სტილი",
+      step3: "შედეგი",
+      dragDrop: "ჩააგდეთ ფოტო აქ",
+      orClick: "ან დააჭირეთ ასარჩევად",
+      imageUploaded: "ფოტო ატვირთულია",
+      generate: "გენერირება",
+      generating: "გენერირება...",
+      aiWorking: "AI მუშაობს...",
+      pleaseWait: "გთხოვთ დაელოდოთ",
+      resultPlaceholder: "აქ გამოჩნდება გენერირებული სურათი",
+      resultReady: "შედეგი მზადაა",
+      download: "ჩამოტვირთვა",
+      howItWorks: "როგორ მუშაობს?",
+      howItWorksDesc: "AI ანალიზებს თქვენს ოთახს და ქმნის რეალისტურ ვიზუალიზაციას არჩეული სტილის სამზარეულოთი.",
+      notConnected: "AI სერვისი ჯერ არ არის დაკავშირებული. გთხოვთ დააკავშიროთ Fal AI.",
+      styles: {
+        modern: "თანამედროვე",
+        classic: "კლასიკური",
+        minimalist: "მინიმალისტური",
+        rustic: "რუსტიკული",
+      },
+    },
   },
   en: {
     nav: {
       home: "Home",
       portfolio: "Portfolio",
+      visualizer: "AI Visualizer",
       calculator: "Calculator",
       about: "About",
       contact: "Contact",
@@ -197,11 +252,38 @@ const translations: Record<Language, Translations> = {
       projectManager: "Project Manager",
       pricingTable: "Pricing Table",
     },
+    visualizer: {
+      title: "Kitchen Visualizer",
+      subtitle: "Upload your room photo and see how your new kitchen will look",
+      step1: "Upload Photo",
+      step2: "Choose Style",
+      step3: "Result",
+      dragDrop: "Drop photo here",
+      orClick: "or click to select",
+      imageUploaded: "Photo uploaded",
+      generate: "Generate",
+      generating: "Generating...",
+      aiWorking: "AI is working...",
+      pleaseWait: "Please wait",
+      resultPlaceholder: "Generated image will appear here",
+      resultReady: "Result is ready",
+      download: "Download",
+      howItWorks: "How it works?",
+      howItWorksDesc: "AI analyzes your room and creates a realistic visualization with your chosen kitchen style.",
+      notConnected: "AI service is not connected yet. Please connect Fal AI.",
+      styles: {
+        modern: "Modern",
+        classic: "Classic",
+        minimalist: "Minimalist",
+        rustic: "Rustic",
+      },
+    },
   },
   ru: {
     nav: {
       home: "Главная",
       portfolio: "Портфолио",
+      visualizer: "AI Визуализатор",
       calculator: "Калькулятор",
       about: "О нас",
       contact: "Контакты",
@@ -260,6 +342,32 @@ const translations: Record<Language, Translations> = {
       priceRequests: "Запросы цен",
       projectManager: "Менеджер проектов",
       pricingTable: "Таблица цен",
+    },
+    visualizer: {
+      title: "Визуализатор кухни",
+      subtitle: "Загрузите фото комнаты и увидите, как будет выглядеть новая кухня",
+      step1: "Загрузите фото",
+      step2: "Выберите стиль",
+      step3: "Результат",
+      dragDrop: "Перетащите фото сюда",
+      orClick: "или нажмите для выбора",
+      imageUploaded: "Фото загружено",
+      generate: "Сгенерировать",
+      generating: "Генерация...",
+      aiWorking: "AI работает...",
+      pleaseWait: "Пожалуйста, подождите",
+      resultPlaceholder: "Здесь появится сгенерированное изображение",
+      resultReady: "Результат готов",
+      download: "Скачать",
+      howItWorks: "Как это работает?",
+      howItWorksDesc: "AI анализирует вашу комнату и создает реалистичную визуализацию с выбранным стилем кухни.",
+      notConnected: "AI сервис еще не подключен. Пожалуйста, подключите Fal AI.",
+      styles: {
+        modern: "Современный",
+        classic: "Классический",
+        minimalist: "Минималистичный",
+        rustic: "Рустикальный",
+      },
     },
   },
 }
