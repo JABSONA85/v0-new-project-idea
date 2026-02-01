@@ -1,30 +1,177 @@
-# New project idea
+# ARTISAN Studio - Luxury Custom Furniture & Granite Website
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Premium custom furniture and granite sink studio website built with Next.js 16, featuring multilingual support, AI-powered kitchen visualization, and an admin dashboard.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/hernanhese-5722s-projects/v0-new-project-idea)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/lfczmp6SwOI)
+## Tech Stack
 
-## Overview
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4 with custom design tokens
+- **Animations**: Framer Motion
+- **UI Components**: shadcn/ui
+- **Theming**: next-themes (Light/Dark/System)
+- **Language**: TypeScript
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Color Palette
 
-## Deployment
+### Light Mode
+- Background: `#FDFBF7` (Cream/Off-white)
+- Foreground: `#111111` (Charcoal/Obsidian)
+- Accent: `#B8A078` (Muted Gold)
 
-Your project is live at:
+### Dark Mode
+- Background: `#111111` (Deep Obsidian)
+- Foreground: `#FDFBF7` (Soft White)
+- Accent: `#B8A078` (Champagne Gold)
 
-**[https://vercel.com/hernanhese-5722s-projects/v0-new-project-idea](https://vercel.com/hernanhese-5722s-projects/v0-new-project-idea)**
+## Project Structure
 
-## Build your app
+```
+/app
+  /admin          # Admin dashboard (price requests, project manager, pricing table)
+    page.tsx
+    loading.tsx
+  layout.tsx      # Root layout with ThemeProvider
+  page.tsx        # Main landing page
+  globals.css     # Tailwind config + design tokens
 
-Continue building your app on:
+/components
+  navigation.tsx       # Glassmorphism navbar with language & theme switcher
+  hero.tsx            # Hero section with luxury typography
+  portfolio.tsx       # Masonry grid gallery with category filters
+  about.tsx           # About section with statistics
+  kitchen-visualizer.tsx  # AI Kitchen Visualizer (needs Fal AI integration)
+  calculator.tsx      # Interactive price calculator
+  chat-widget.tsx     # AI chat widget (ready for n8n integration)
+  footer.tsx          # Footer with contact info
+  theme-toggle.tsx    # Light/Dark/System theme switcher
+  theme-provider.tsx  # next-themes provider
 
-**[https://v0.app/chat/lfczmp6SwOI](https://v0.app/chat/lfczmp6SwOI)**
+/lib
+  language-context.tsx  # Multilingual support (KA/EN/RU)
+  utils.ts              # Utility functions (cn)
+```
 
-## How It Works
+## Features
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+### 1. Multilingual Support
+- Georgian (KA) - Default
+- English (EN)
+- Russian (RU)
+
+All translations are in `/lib/language-context.tsx`.
+
+### 2. Theme System
+- Light Mode (Cream background)
+- Dark Mode (Obsidian background)
+- System preference detection
+- Smooth 300ms transitions
+
+### 3. Navigation
+- Glassmorphism effect
+- Scroll-aware background
+- Mobile responsive with hamburger menu
+- Language switcher
+- Theme toggle
+
+### 4. Portfolio Gallery
+- Category filtering (Laminate Kitchens, Solid Wood, Granite Sinks, Bedrooms)
+- Masonry-style grid
+- Hover animations with gold accents
+- Image zoom effects
+
+### 5. Price Calculator
+- Category selection
+- Dimension inputs (width, height, depth)
+- Material selection
+- Add-ons (LED Lighting, Premium Handles, Soft-close)
+- Live price calculation in Georgian Lari (GEL)
+- Quote request form
+
+### 6. AI Kitchen Visualizer (UI Ready)
+- Drag & drop image upload
+- Style selection (Modern, Classic, Minimalist, Rustic)
+- Generate button with loading states
+- Result preview panel
+
+**Note**: Requires Fal AI integration to function. Connect Fal AI and update the `handleGenerate` function in `/components/kitchen-visualizer.tsx`.
+
+### 7. AI Chat Widget (UI Ready)
+- Floating chat button
+- Chat interface
+- Simulated responses
+
+**Note**: Ready for n8n AI integration.
+
+### 8. Admin Dashboard (`/admin`)
+- **Price Requests Tab**: View and manage customer quote requests
+- **Project Manager Tab**: Manage portfolio items, toggle featured status
+- **Pricing Table Tab**: Edit rates per square meter and addon prices
+
+## Required Integrations
+
+### For Full Functionality:
+
+1. **Fal AI** - For kitchen visualization AI generation
+   - Add `FAL_KEY` environment variable
+   - Update `/components/kitchen-visualizer.tsx` handleGenerate function
+
+2. **Database** (Supabase/Neon recommended) - For storing:
+   - Price requests
+   - Portfolio items
+   - Pricing data
+
+3. **n8n** (Optional) - For AI chat functionality
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Design Tokens (globals.css)
+
+```css
+:root {
+  --background: #FDFBF7;
+  --foreground: #111111;
+  --accent: #B8A078;
+  --gold: #B8A078;
+  --obsidian: #111111;
+  --offwhite: #FDFBF7;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #FDFBF7;
+  --accent: #B8A078;
+}
+```
+
+## Typography
+
+- **Headings**: Playfair Display (Serif)
+- **Body**: Inter (Sans-serif)
+- **Currency**: Georgian Lari (GEL)
+
+## Notes for AI Assistants
+
+1. **Theme-aware classes**: Use `bg-background`, `text-foreground`, `text-accent`, `bg-primary`, `text-primary-foreground` instead of hardcoded colors like `bg-obsidian` or `text-offwhite`.
+
+2. **Translations**: All text strings should be added to `/lib/language-context.tsx` in all three languages (ka, en, ru).
+
+3. **Currency**: All prices are in Georgian Lari. Display format: `{price} ₾`
+
+4. **Animations**: Use Framer Motion for animations. Follow existing patterns.
+
+5. **Components**: Split code into reusable components. Don't put everything in page.tsx.
+
+## License
+
+Private - ARTISAN Studio
