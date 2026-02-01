@@ -25,7 +25,7 @@ Premium custom furniture and granite sink studio website built with Next.js 16, 
 
 ## Project Structure
 
-```
+\`\`\`
 /app
   /admin          # Admin dashboard (price requests, project manager, pricing table)
     page.tsx
@@ -49,7 +49,7 @@ Premium custom furniture and granite sink studio website built with Next.js 16, 
 /lib
   language-context.tsx  # Multilingual support (KA/EN/RU)
   utils.ts              # Utility functions (cn)
-```
+\`\`\`
 
 ## Features
 
@@ -127,16 +127,72 @@ Universal furniture visualization tool supporting ALL products:
    - Update `/components/room-visualizer.tsx` handleGenerate function
    - Supports: kitchens, bedrooms, solid wood furniture, granite sinks
 
-2. **Database** (Supabase/Neon recommended) - For storing:
-   - Price requests
-   - Portfolio items
-   - Pricing data
+2. **Supabase** - Database integration configured
+   - Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - API Routes: `/api/portfolio`, `/api/price-requests`, `/api/contact`
+   
+   **Required Tables (create in Supabase Dashboard > SQL Editor):**
+   
+   ```sql
+   -- Portfolio Items
+   CREATE TABLE portfolio_items (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     title TEXT NOT NULL,
+     description TEXT,
+     category TEXT NOT NULL,
+     image_url TEXT,
+     is_featured BOOLEAN DEFAULT false,
+     created_at TIMESTAMPTZ DEFAULT NOW()
+   );
+
+   -- Price Requests
+   CREATE TABLE price_requests (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     name TEXT NOT NULL,
+     email TEXT NOT NULL,
+     phone TEXT,
+     category TEXT NOT NULL,
+     width NUMERIC,
+     height NUMERIC,
+     material TEXT,
+     addons JSONB,
+     total NUMERIC NOT NULL,
+     status TEXT DEFAULT 'pending',
+     created_at TIMESTAMPTZ DEFAULT NOW()
+   );
+
+   -- Contact Messages
+   CREATE TABLE contact_messages (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     name TEXT NOT NULL,
+     email TEXT NOT NULL,
+     phone TEXT,
+     message TEXT NOT NULL,
+     created_at TIMESTAMPTZ DEFAULT NOW()
+   );
+
+   -- Pricing Rates
+   CREATE TABLE pricing_rates (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     category TEXT NOT NULL UNIQUE,
+     rate_per_sqm NUMERIC NOT NULL,
+     updated_at TIMESTAMPTZ DEFAULT NOW()
+   );
+
+   -- Addon Pricing
+   CREATE TABLE addon_pricing (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     name TEXT NOT NULL UNIQUE,
+     price NUMERIC NOT NULL,
+     updated_at TIMESTAMPTZ DEFAULT NOW()
+   );
+   ```
 
 3. **n8n** (Optional) - For AI chat functionality
 
 ## Development
 
-```bash
+\`\`\`bash
 # Install dependencies
 npm install
 
@@ -145,11 +201,11 @@ npm run dev
 
 # Build for production
 npm run build
-```
+\`\`\`
 
 ## Design Tokens (globals.css)
 
-```css
+\`\`\`css
 :root {
   --background: #FDFBF7;
   --foreground: #111111;
@@ -164,7 +220,7 @@ npm run build
   --foreground: #FDFBF7;
   --accent: #B8A078;
 }
-```
+\`\`\`
 
 ## Typography
 
